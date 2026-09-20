@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" data-live-origin="https://predicted-safe-fruits-eric.trycloudflare.com">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#160d0d">
+  <meta property="og:title" content="Sam — Intelligence, in the moment.">
+  <meta property="og:description" content="Experience realtime voice with live expression, attention, and Jev-powered understanding. A short conversation with Sam.">
+  <meta property="og:image" content="https://fibonacciai.github.io/sam-presence/demo-media/frame-conversation.jpg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Sam is intelligence in the moment — realtime voice, live expression, and structured understanding.">
+  <title>Sam — Intelligence, in the moment.</title>
+  <style>
+    :root {
+      --ink: #f8efe5;
+      --muted: #cdbcb2;
+      --deep: #160d0d;
+      --red: #b8252c;
+      --bright: #e34445;
+      --line: rgba(248, 239, 229, .17);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ink);
+      background: var(--deep);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      pointer-events: none;
+      width: 58vw;
+      height: 58vw;
+      max-width: 900px;
+      max-height: 900px;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: .26;
+      background: radial-gradient(circle, var(--red), transparent 68%);
+      animation: drift 16s ease-in-out infinite alternate;
+    }
+    body::before { top: -32vw; left: -20vw; }
+    body::after { right: -28vw; bottom: -34vw; animation-delay: -7s; background: radial-gradient(circle, #6f131c, transparent 68%); }
+    @keyframes drift { from { transform: translate3d(-2%, 1%, 0) scale(.96); } to { transform: translate3d(4%, -3%, 0) scale(1.05); } }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+    .mark { text-decoration: none; font: 700 1.65rem/1 var(--serif); letter-spacing: -.07em; }
+    nav { display: flex; gap: 28px; color: var(--muted); font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; }
+    nav a { text-decoration: none; }
+    nav a:hover, nav a:focus-visible { color: var(--ink); }
+    .hero { min-height: min(720px, calc(100vh - 90px)); display: grid; align-items: center; padding: 80px 0 110px; }
+    .eyebrow { color: #f28a7e; font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { max-width: 790px; margin: 18px 0 24px; font: 400 clamp(3.7rem, 9vw, 8.5rem)/.88 var(--serif); letter-spacing: -.075em; }
+    h1 em { color: #ec5755; font-style: italic; }
+    .lede { max-width: 510px; margin: 0; color: var(--muted); font-size: clamp(1.05rem, 1.7vw, 1.28rem); line-height: 1.55; }
+    .actions { display: flex; align-items: center; gap: 22px; margin-top: 38px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 49px; padding: 0 22px; border: 1px solid transparent; border-radius: 999px; color: #fff8f0; background: var(--red); font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, background .2s ease, opacity .2s ease; }
+    .button:hover, .button:focus-visible { background: var(--bright); transform: translateY(-2px); }
+    .button[aria-disabled="true"] { cursor: not-allowed; opacity: .55; }
+    .availability { max-width: 260px; color: #bfaea6; font-size: .78rem; line-height: 1.4; }
+    .film { padding: 0 0 120px; }
+    .film-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+    .film h2 { margin: 0; font: 400 clamp(2rem, 4vw, 3.4rem)/1 var(--serif); letter-spacing: -.05em; }
+    .film-intro { max-width: 310px; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+    figure { margin: 0; }
+    video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 3px; background: #251112; object-fit: cover; box-shadow: 0 25px 70px rgba(0,0,0,.35); }
+    figcaption { display: flex; justify-content: space-between; gap: 20px; padding-top: 12px; color: #a9948b; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .how { padding: 0 0 116px; }
+    .how-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 24px; }
+    .how h2 { margin: 0; font: 400 clamp(2rem, 4vw, 3.4rem)/1 var(--serif); letter-spacing: -.05em; }
+    .how-header p { max-width: 350px; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .flow-step { position: relative; min-height: 195px; padding: 22px 24px 22px 0; }
+    .flow-step + .flow-step { padding-left: 24px; border-left: 1px solid var(--line); }
+    .flow-step:not(:last-child)::after { content: "→"; position: absolute; top: 21px; right: -9px; z-index: 1; padding: 0 3px; color: #ed645d; background: var(--deep); font-size: 1.1rem; }
+    .step-no { color: #ed645d; font: .72rem/1 var(--sans); letter-spacing: .14em; }
+    .flow h3 { margin: 31px 0 10px; font: 400 1.32rem/1.1 var(--serif); }
+    .flow p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+    .how details { margin-top: 18px; border-top: 1px solid var(--line); }
+    .how summary { cursor: pointer; padding: 15px 0; color: #edc4b7; font-size: .76rem; letter-spacing: .1em; list-style-position: outside; text-transform: uppercase; }
+    .how details p { max-width: 760px; margin: 0 0 6px 18px; color: var(--muted); font-size: .82rem; line-height: 1.6; }
+    .how code { color: #f6c5b9; font: .78rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding: 0 0 116px; }
+    .principle { padding: 20px 30px 0 0; border-top: 1px solid var(--line); }
+    .principle + .principle { padding-left: 30px; border-left: 1px solid var(--line); }
+    .principle h3 { margin: 0 0 13px; font: 400 1.45rem var(--serif); }
+    .principle p { max-width: 270px; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+    footer { padding: 22px 0 32px; border-top: 1px solid var(--line); color: #9f8d85; font-size: .74rem; line-height: 1.5; }
+    .privacy { max-width: 660px; }
+    :focus-visible { outline: 2px solid #ff9d8f; outline-offset: 5px; }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 36px, 560px); }
+      header { padding: 22px 0; }
+      nav { gap: 14px; font-size: .67rem; }
+      .hero { min-height: auto; padding: 96px 0 120px; }
+      h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
+      .actions { align-items: flex-start; flex-direction: column; gap: 15px; }
+      .film { padding-bottom: 90px; }
+      .film-head { display: block; }
+      .film-intro { margin-top: 13px; }
+      figcaption { display: block; line-height: 1.7; }
+      .how { padding-bottom: 90px; }
+      .how-header { display: block; }
+      .how-header p { margin-top: 13px; }
+      .flow { display: block; }
+      .flow-step, .flow-step + .flow-step { min-height: 0; padding: 20px 0; border-left: 0; }
+      .flow-step + .flow-step { border-top: 1px solid var(--line); }
+      .flow-step:not(:last-child)::after { top: auto; right: 2px; bottom: -12px; }
+      .flow h3 { margin-top: 13px; }
+      .principles { display: block; padding-bottom: 90px; }
+      .principle, .principle + .principle { padding: 22px 0; border-left: 0; }
+      .principle + .principle { border-top: 1px solid var(--line); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <a class="mark" href="./" aria-label="Sam home">sam.</a>
+    <nav aria-label="Main navigation"><a href="#film">The demo</a><a href="#how">How it works</a><a href="https://github.com/FibonacciAi/sam-presence" aria-label="Star the Sam showcase on GitHub">GitHub ↗</a></nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">A presence for the present</div>
+        <h1 id="hero-title">Intelligence,<br><em>in the moment.</em></h1>
+        <p class="lede">A conversation that notices you. Realtime voice, live expression, and attention come together so Sam can respond to the moment as it unfolds.</p>
+        <div class="actions">
+          <a class="button" id="experience" href="/app" aria-disabled="true">Experience Sam <span aria-hidden="true">↗</span></a>
+          <span class="availability" id="availability" role="status">Checking availability…</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="film wrap" id="film" aria-labelledby="film-title">
+      <div class="film-head"><h2 id="film-title">A small window<br>into Sam.</h2><p class="film-intro">A synthetic demo of voice, focus, and expression working in concert.</p></div>
+      <figure>
+        <video controls playsinline preload="metadata" poster="./demo-media/frame-conversation.jpg">
+          <source src="./demo-media/presence-study-01.mp4" type="video/mp4">
+          <p>Your browser can’t play this video. <a href="./demo-media/presence-study-01.mp4">Download the demo film</a>.</p>
+        </video>
+        <figcaption><span>Synthetic demo film</span><span>Unofficial study · 01</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="how wrap" id="how" aria-labelledby="how-title">
+      <div class="how-header"><h2 id="how-title">How Sam<br>stays present.</h2><p>A fast, bounded loop: perception stays local, while Jev adds typed context alongside the voice conversation.</p></div>
+      <div class="flow" aria-label="Sam's realtime processing flow">
+        <article class="flow-step"><div class="step-no">01 / LOCAL</div><h3>See the moment.</h3><p>Browser camera input becomes coarse movement, head, gaze, and gesture signals through MediaPipe. Raw frames never leave the device.</p></article>
+        <article class="flow-step"><div class="step-no">02 / EPHEMERAL</div><h3>Compress gently.</h3><p>The browser emits compact observations for the current turn — short-lived context, not a recording or a verdict.</p></article>
+        <article class="flow-step"><div class="step-no">03 / PARALLEL</div><h3>Let Jev notice.</h3><p>Jev receives structured text, then returns typed relevance, grounding, and perspective signals. It never receives raw camera.</p></article>
+        <article class="flow-step"><div class="step-no">04 / REALTIME</div><h3>Keep talking.</h3><p>Grok’s open-mic voice responds as you finish speaking, using the latest context. Jev enriches subsequent responses. Hold-to-talk can wait for Jev before replying.</p></article>
+      </div>
+      <details><summary>Inspect the boundary</summary><p><code>camera → MediaPipe → {movement, head, gaze, gesture} → ephemeral observations → Jev</code>. Jev’s typed signals join the next voice turn. Audio-reactive color pulses follow actual playback, not inferred emotion.</p></details>
+    </section>
+
+    <section class="principles wrap" id="about" aria-label="Sam principles">
+      <article class="principle"><h3>Hear the thread.</h3><p>Voice gives the moment shape, so conversation can stay fluid and responsive.</p></article>
+      <article class="principle"><h3>Notice, lightly.</h3><p>Attention and expression are treated as bounded signals — never definitive emotions or mindreading.</p></article>
+      <article class="principle"><h3>Keep it clear.</h3><p>Sam works from compact observations and structured context, with your permission.</p></article>
+    </section>
+  </main>
+
+  <footer class="wrap"><p class="privacy">Privacy, by design: camera frames stay on your device. Only voice and compact observations are sent to providers, and only with permission.</p></footer>
+
+  <script>
+    (() => {
+      const action = document.querySelector('#experience');
+      const status = document.querySelector('#availability');
+      const liveOrigin = document.documentElement.dataset.liveOrigin || location.origin;
+      action.href = liveOrigin + '/app';
+      action.addEventListener('click', (event) => { if(action.getAttribute('aria-disabled')==='true') event.preventDefault(); });
+      const setUnavailable = (message) => {
+        action.setAttribute('aria-disabled', 'true');
+        status.textContent = message;
+      };
+      fetch(liveOrigin + '/api/public/availability', { cache: 'no-store', headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(8000) })
+        .then((response) => { if (!response.ok) throw new Error('availability unavailable'); return response.json(); })
+        .then((data) => {
+          if (data && data.enabled === true && data.available === true) {
+            action.removeAttribute('aria-disabled');
+            status.textContent = data.message || 'A live session is available.';
+          } else {
+            setUnavailable((data && data.message) || 'Live sessions are not available right now.');
+          }
+        })
+        .catch(() => setUnavailable('Sam is offline here right now. Try again later.'));
+    })();
+  </script>
+</body>
+</html>
