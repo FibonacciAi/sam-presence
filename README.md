@@ -2,7 +2,7 @@
 
 ![Sam demo](media/preview.gif)
 
-Sam is a realtime presence for conversation: voice, attention, and live expression brought together in one calm, responsive experience. See it on the [public showcase page](https://fibonacciai.github.io/sam-presence/).
+Your main agent should get you. It should be there with you in the moment. Sam brings realtime voice, local expression, head, gaze, gesture, and Jev-powered attention into one calm, responsive experience. See it on the [public showcase page](https://fibonacciai.github.io/sam-presence/).
 
 The demo is intentionally simple: Sam listens, notices lightly, and keeps the thread moving.
 
