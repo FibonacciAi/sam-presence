@@ -1,12 +1,12 @@
 # Sam — intelligence, in the moment
 
-![Sam demo](media/preview.gif)
+![Sam](media/scene.jpg)
 
 Your main agent should get you. It should be there with you in the moment. Sam brings realtime voice, local expression, head, gaze, gesture, and Jev-powered attention into one calm, responsive experience. See it on the [public showcase page](https://fibonacciai.github.io/sam-presence/).
 
 The demo is intentionally simple: Sam listens, notices lightly, and keeps the thread moving.
 
-This repository is the small public window around the demo: the native landing page, a short demo film, and a technical walkthrough. The product implementation remains private; no implementation source is included here.
+This repository is the small public window around the demo: the native landing page and a technical walkthrough. The product implementation remains private; no implementation source is included here.
 
 ## What the demo shows
 
@@ -19,8 +19,4 @@ Read the [architecture walkthrough](ARCHITECTURE.md) for the public dataflow and
 
 ## Included media
 
-- `media/preview.gif` — page preview
 - `media/scene.jpg` — still image
-- `demo-media/presence-study-01.mp4` — synthetic demo film
-
-Synthetic demo media credit: created for the Sam presence study.

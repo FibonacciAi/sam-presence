@@ -104,13 +104,6 @@
     .button:hover, .button:focus-visible { background: var(--bright); transform: translateY(-2px); }
     .button[aria-disabled="true"] { cursor: not-allowed; opacity: .55; }
     .availability { max-width: 260px; color: #bfaea6; font-size: .78rem; line-height: 1.4; }
-    .film { padding: 0 0 120px; }
-    .film-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
-    .film h2 { margin: 0; font: 400 clamp(2rem, 4vw, 3.4rem)/1 var(--serif); letter-spacing: -.05em; }
-    .film-intro { max-width: 310px; margin: 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
-    figure { margin: 0; }
-    video { display: block; width: 100%; aspect-ratio: 16 / 9; border-radius: 3px; background: #251112; object-fit: cover; box-shadow: 0 25px 70px rgba(0,0,0,.35); }
-    figcaption { display: flex; justify-content: space-between; gap: 20px; padding-top: 12px; color: #a9948b; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
     .how { padding: 0 0 116px; }
     .how-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; padding-bottom: 24px; }
     .how h2 { margin: 0; font: 400 clamp(2rem, 4vw, 3.4rem)/1 var(--serif); letter-spacing: -.05em; }
@@ -143,10 +136,6 @@
       .hero { min-height: auto; padding: 96px 0 120px; }
       h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
       .actions { align-items: flex-start; flex-direction: column; gap: 15px; }
-      .film { padding-bottom: 90px; }
-      .film-head { display: block; }
-      .film-intro { margin-top: 13px; }
-      figcaption { display: block; line-height: 1.7; }
       .how { padding-bottom: 90px; }
       .how-header { display: block; }
       .how-header p { margin-top: 13px; }
@@ -169,7 +158,7 @@
   <div class="ambient" aria-hidden="true"><span class="ambient-layer"></span></div>
   <header class="wrap">
     <a class="mark" href="./" aria-label="Sam home">sam.</a>
-    <nav aria-label="Main navigation"><a href="#film">The demo</a><a href="#how">How it works</a><a href="https://github.com/FibonacciAi/sam-presence" aria-label="Star the Sam showcase on GitHub">GitHub ↗</a></nav>
+    <nav aria-label="Main navigation"><a href="#how">How it works</a><a href="https://github.com/FibonacciAi/sam-presence" aria-label="Star the Sam showcase on GitHub">GitHub ↗</a></nav>
   </header>
 
   <main>
@@ -183,17 +172,6 @@
           <span class="availability" id="availability" role="status">Checking availability…</span>
         </div>
       </div>
-    </section>
-
-    <section class="film wrap" id="film" aria-labelledby="film-title">
-      <div class="film-head"><h2 id="film-title">A small window<br>into Sam.</h2><p class="film-intro">A synthetic demo of voice, focus, and expression working in concert.</p></div>
-      <figure>
-        <video controls playsinline preload="metadata" poster="./demo-media/frame-conversation.jpg">
-          <source src="./demo-media/presence-study-01.mp4" type="video/mp4">
-          <p>Your browser can’t play this video. <a href="./demo-media/presence-study-01.mp4">Download the demo film</a>.</p>
-        </video>
-        <figcaption><span>Synthetic demo film</span><span>Unofficial study · 01</span></figcaption>
-      </figure>
     </section>
 
     <section class="how wrap" id="how" aria-labelledby="how-title">
