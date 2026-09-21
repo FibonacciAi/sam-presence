@@ -9,7 +9,7 @@ flowchart LR
   C --> D[Compact ephemeral<br/>observation]
   U[Human speech or text] --> D
   D --> E[Jev<br/>typed signals]
-  D --> F[Realtime voice<br/>Grok open mic]
+  D --> F[Realtime voice<br/>OpenAI Marin]
   E -. enriches next turn .-> F
   F --> G[Speech + transcript]
   G --> H[Sam colors pulse<br/>to actual audio]
@@ -39,7 +39,9 @@ Jev's response is likewise typed and bounded: relevance, grounding, perspective,
 
 ## Timing that stays responsive
 
-Local perception can update several times per second and is available without a network round trip. Jev runs alongside conversation work and may finish after a voice turn has already started. In Grok open-mic mode, native voice activity detection can begin a response from the latest available context; Sam does not hold every reply waiting for Jev. A completed Jev result can enrich the next turn, while stale work is discarded when a new speech epoch begins. Hold-to-talk has a different boundary: audio is committed when the user releases, then response scheduling begins.
+Local perception can update several times per second without a network round trip. The public relay coalesces those updates into the latest observation and paces provider context updates. Jev runs alongside the conversation and may finish after a voice turn has already started; Sam responds using the context available for that turn. Voice activity detection identifies speech boundaries, while the app schedules responses and discards stale work when a new speech epoch begins. Hold-to-talk commits audio when the user releases.
+
+OpenAI Marin is the primary voice. Grok Carina takes over when OpenAI explicitly reports exhausted credit or when the demo's OpenAI reservation allowance is unavailable. Transient rate limits do not change providers. The server keeps separate provider ledgers and keys, bounds sessions and usage, and preserves the original session end time across fallback.
 
 The Sam mark's color motion is driven by measured assistant audio playback. It does not infer a person's mood from pixels.
 
