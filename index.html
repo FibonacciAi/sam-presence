@@ -168,8 +168,8 @@
         <h1 id="hero-title">Intelligence,<br><em>in the moment.</em></h1>
         <p class="lede">Your main agent should get you. It should be there with you in the moment. Sam brings realtime voice, local expression, head, gaze, gesture, and Jev-powered attention into one calm conversation.</p>
         <div class="actions">
-          <a class="button" id="experience" href="/app" aria-disabled="true">Experience Sam <span aria-hidden="true">↗</span></a>
-          <span class="availability" id="availability" role="status">Checking availability…</span>
+          <a class="button" id="experience" href="https://dimitris-macbook-pro-2.tail866749.ts.net:8443/app">Experience Sam <span aria-hidden="true">↗</span></a>
+          <span class="availability">A five-minute conversation. Camera optional.</span>
         </div>
       </div>
     </section>
@@ -194,29 +194,5 @@
 
   <footer class="wrap"><p class="privacy">Privacy, by design: camera frames stay on your device. Only voice and compact observations are sent to providers, and only with permission.</p></footer>
 
-  <script>
-    (() => {
-      const action = document.querySelector('#experience');
-      const status = document.querySelector('#availability');
-      const liveOrigin = document.documentElement.dataset.liveOrigin || location.origin;
-      action.href = liveOrigin + '/app';
-      action.addEventListener('click', (event) => { if(action.getAttribute('aria-disabled')==='true') event.preventDefault(); });
-      const setUnavailable = (message) => {
-        action.setAttribute('aria-disabled', 'true');
-        status.textContent = message;
-      };
-      fetch(liveOrigin + '/api/public/availability', { cache: 'no-store', headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(8000) })
-        .then((response) => { if (!response.ok) throw new Error('availability unavailable'); return response.json(); })
-        .then((data) => {
-          if (data && data.enabled === true && data.available === true) {
-            action.removeAttribute('aria-disabled');
-            status.textContent = data.message || 'A live session is available.';
-          } else {
-            setUnavailable((data && data.message) || 'Live sessions are not available right now.');
-          }
-        })
-        .catch(() => setUnavailable('Sam is offline here right now. Try again later.'));
-    })();
-  </script>
 </body>
 </html>
