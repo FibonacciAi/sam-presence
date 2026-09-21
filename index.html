@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-live-origin="https://fourth-particles-identifier-mandate.trycloudflare.com">
+<html lang="en" data-live-origin="https://thorough-jay-bin-gospel.trycloudflare.com">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,9 +15,9 @@
     :root {
       --ink: #f8efe5;
       --muted: #cdbcb2;
-      --deep: #160d0d;
-      --red: #b8252c;
-      --bright: #e34445;
+      --deep: #100207;
+      --red: #b7192a;
+      --bright: #ed3040;
       --line: rgba(248, 239, 229, .17);
       --serif: Georgia, "Times New Roman", serif;
       --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -32,24 +32,61 @@
       font-family: var(--sans);
       -webkit-font-smoothing: antialiased;
     }
-    body::before, body::after {
+    .ambient {
       content: "";
       position: fixed;
-      z-index: -1;
+      inset: 0;
+      z-index: 0;
       pointer-events: none;
-      width: 58vw;
-      height: 58vw;
-      max-width: 900px;
-      max-height: 900px;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: .26;
-      background: radial-gradient(circle, var(--red), transparent 68%);
-      animation: drift 16s ease-in-out infinite alternate;
+      overflow: hidden;
+      background: radial-gradient(ellipse at 50% 42%, rgba(93, 4, 19, .25), transparent 58%);
     }
-    body::before { top: -32vw; left: -20vw; }
-    body::after { right: -28vw; bottom: -34vw; animation-delay: -7s; background: radial-gradient(circle, #6f131c, transparent 68%); }
-    @keyframes drift { from { transform: translate3d(-2%, 1%, 0) scale(.96); } to { transform: translate3d(4%, -3%, 0) scale(1.05); } }
+    .ambient::before, .ambient::after, .ambient-layer {
+      position: absolute;
+      width: 72vw;
+      height: 72vw;
+      max-width: 1050px;
+      max-height: 1050px;
+      border-radius: 50%;
+      filter: blur(48px);
+      will-change: transform, opacity;
+    }
+    .ambient::before {
+      content: "";
+      top: -34vw;
+      left: -20vw;
+      opacity: .7;
+      background: radial-gradient(circle, rgba(215, 27, 47, .86) 0 12%, rgba(133, 7, 25, .62) 34%, transparent 70%);
+      animation: crimson-orbit-a 22s ease-in-out infinite alternate;
+    }
+    .ambient::after {
+      content: "";
+      right: -32vw;
+      bottom: -38vw;
+      opacity: .72;
+      background: radial-gradient(circle, rgba(181, 12, 35, .82) 0 14%, rgba(91, 3, 18, .66) 37%, transparent 71%);
+      animation: crimson-orbit-b 27s ease-in-out -9s infinite alternate;
+    }
+    .ambient-layer {
+      top: 22vh;
+      left: 28vw;
+      opacity: .35;
+      background: radial-gradient(circle, rgba(255, 44, 58, .72) 0 8%, rgba(166, 10, 30, .35) 31%, transparent 68%);
+      animation: crimson-orbit-c 31s ease-in-out -15s infinite alternate;
+    }
+    @keyframes crimson-orbit-a {
+      from { transform: translate3d(-3%, 2%, 0) scale(.92) rotate(-5deg); }
+      to { transform: translate3d(13%, 9%, 0) scale(1.08) rotate(8deg); }
+    }
+    @keyframes crimson-orbit-b {
+      from { transform: translate3d(4%, -4%, 0) scale(.94) rotate(4deg); }
+      to { transform: translate3d(-12%, -10%, 0) scale(1.1) rotate(-7deg); }
+    }
+    @keyframes crimson-orbit-c {
+      from { transform: translate3d(-10%, 9%, 0) scale(.86); opacity: .22; }
+      to { transform: translate3d(12%, -11%, 0) scale(1.12); opacity: .46; }
+    }
+    header, main, footer { position: relative; z-index: 1; }
     a { color: inherit; }
     .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
     header { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
@@ -101,6 +138,8 @@
       .wrap { width: min(100% - 36px, 560px); }
       header { padding: 22px 0; }
       nav { gap: 14px; font-size: .67rem; }
+      .ambient::before, .ambient::after, .ambient-layer { width: 118vw; height: 118vw; filter: blur(38px); }
+      .ambient-layer { top: 35vh; left: 4vw; }
       .hero { min-height: auto; padding: 96px 0 120px; }
       h1 { font-size: clamp(3.6rem, 17vw, 6rem); }
       .actions { align-items: flex-start; flex-direction: column; gap: 15px; }
@@ -122,11 +161,12 @@
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
 <body>
+  <div class="ambient" aria-hidden="true"><span class="ambient-layer"></span></div>
   <header class="wrap">
     <a class="mark" href="./" aria-label="Sam home">sam.</a>
     <nav aria-label="Main navigation"><a href="#film">The demo</a><a href="#how">How it works</a><a href="https://github.com/FibonacciAi/sam-presence" aria-label="Star the Sam showcase on GitHub">GitHub ↗</a></nav>
@@ -157,14 +197,14 @@
     </section>
 
     <section class="how wrap" id="how" aria-labelledby="how-title">
-      <div class="how-header"><h2 id="how-title">How Sam<br>stays present.</h2><p>A fast, bounded loop: perception stays local, while Jev adds typed context alongside the voice conversation.</p></div>
+      <div class="how-header"><h2 id="how-title">The conversation<br>has more to go on.</h2><p>A smile while you speak. A raised brow. A shift in attention. Sam brings what you say together with what is happening around the conversation, so her response can meet the moment.</p></div>
       <div class="flow" aria-label="Sam's realtime processing flow">
-        <article class="flow-step"><div class="step-no">01 / LOCAL</div><h3>See the moment.</h3><p>Browser camera input becomes coarse movement, head, gaze, and gesture signals through MediaPipe. Raw frames never leave the device.</p></article>
-        <article class="flow-step"><div class="step-no">02 / EPHEMERAL</div><h3>Compress gently.</h3><p>The browser emits compact observations for the current turn — short-lived context, not a recording or a verdict.</p></article>
-        <article class="flow-step"><div class="step-no">03 / PARALLEL</div><h3>Let Jev notice.</h3><p>Jev receives structured text, then returns typed relevance, grounding, and perspective signals. It never receives raw camera.</p></article>
-        <article class="flow-step"><div class="step-no">04 / REALTIME</div><h3>Keep talking.</h3><p>Grok’s open-mic voice responds as you finish speaking, using the latest context. Jev enriches subsequent responses. Hold-to-talk can wait for Jev before replying.</p></article>
+        <article class="flow-step"><div class="step-no">01 / LOCAL</div><h3>Read the moment.</h3><p>Browser camera input becomes coarse expression, movement, head, gaze, and gesture signals through MediaPipe. Raw frames never leave the device.</p></article>
+        <article class="flow-step"><div class="step-no">02 / TOGETHER</div><h3>Words meet presence.</h3><p>Your words meet a changing stream of compact observations. The voice model gets context for how the conversation is unfolding, alongside what you are saying.</p></article>
+        <article class="flow-step"><div class="step-no">03 / JEV</div><h3>Find what matters.</h3><p>Jev works in parallel, interpreting the words and observations through several focused questions. It returns structured signals about relevance, grounding, and perspective for Sam to draw on.</p></article>
+        <article class="flow-step"><div class="step-no">04 / REALTIME</div><h3>Stay with you.</h3><p>Those signals become part of Sam’s conversational context. She can acknowledge an expression, ask a better question, or keep listening—without turning every movement into a comment.</p></article>
       </div>
-      <details><summary>Inspect the boundary</summary><p><code>camera → MediaPipe → {movement, head, gaze, gesture} → ephemeral observations → Jev</code>. Jev’s typed signals join the next voice turn. Audio-reactive color pulses follow actual playback, not inferred emotion.</p></details>
+      <details><summary>Under the hood</summary><p>MediaPipe runs in the browser. Compact observations and the current utterance feed Jev’s parallel structured judgments; available observations and Jev results update the realtime voice context. OpenAI’s Marin is the primary voice, with Grok’s Carina as fallback. Camera frames and landmarks stay on-device. Observations are temporary, interpretations remain uncertain, and the live colors follow speech and interaction state.</p></details>
     </section>
 
     <section class="principles wrap" id="about" aria-label="Sam principles">

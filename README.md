@@ -11,9 +11,9 @@ This repository is the small public window around the demo: the native landing p
 ## What the demo shows
 
 - Camera perception stays local in the browser. MediaPipe reduces the live view to coarse movement, head, gaze, and gesture observations.
-- Those observations become compact, ephemeral context rather than raw camera data.
-- Jev works alongside the voice loop, returning typed relevance, grounding, and perspective signals. In Grok open-mic mode, the voice turn does not wait for Jev; its signals enrich what comes next. Hold-to-talk naturally commits on release.
-- Realtime voice uses the latest bounded context, while visual color pulses follow actual audio playback.
+- Those observations and the human's words become compact, ephemeral context rather than raw camera data.
+- Jev works alongside the voice loop, returning typed relevance, grounding, perspective, and attention signals that join the same conversation context.
+- OpenAI Marin is the primary realtime voice, with Grok Carina as the automatic fallback when budget is exhausted. Sam responds with the latest available words, movement, expression, and attention context; visual color pulses follow actual audio playback.
 
 Read the [architecture walkthrough](ARCHITECTURE.md) for the public dataflow and timing boundary.
 
